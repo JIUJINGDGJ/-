@@ -1,0 +1,33 @@
+#define  _CRT_SECURE_NO_WARNINGS
+#pragma warning(disable:6031)
+#include<bits/stdc++.h>
+#define int long long
+#define endl '\n'
+using namespace std;
+class Solution {
+public:
+	vector<vector<string>> groupAnagrams(vector<string>& strs) {
+		map<string ,vector<string>>mp;
+		for (auto s : strs)
+		{
+			string m = s;
+			sort(m.begin(), m.end());//将数组中的元素排序
+			mp[m].push_back(s);//map集合里这个字符串对应的动态数组里压入这个字符串
+
+		}
+		vector<vector<string>>q;//与要压入的元素对应
+		for (auto w : mp)
+		{
+			q.push_back(w.second);//压入各个字母异味词分组
+		}
+		return q;
+	}
+};
+signed main()
+{
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	cout.tie(0);
+
+	return 0;
+}
